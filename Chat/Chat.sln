@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatServer", "Chat\ChatServer.csproj", "{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "ChatClient\ChatClient.csproj", "{C3229DA2-007E-4C65-A568-142742464377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shifr", "Shifr\Shifr.csproj", "{182015DE-1BFF-4D82-B276-B8DF765A54E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3229DA2-007E-4C65-A568-142742464377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3229DA2-007E-4C65-A568-142742464377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3229DA2-007E-4C65-A568-142742464377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3229DA2-007E-4C65-A568-142742464377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8336614F-F99F-451E-9534-94D76E7A18A6}
+	EndGlobalSection
+EndGlobal
