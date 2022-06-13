@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Sockets;
 using System.Numerics;
 using System.Text;
+using System.Text.Json;
+using Shifr;
 
 namespace ChatServer
 {
@@ -15,7 +19,7 @@ namespace ChatServer
             TcpClient client;
             ServerObject server; // объект сервера
             private BigInteger Y;
-            private string YString;
+            protected internal string YString;
 
             public ClientObject(TcpClient tcpClient, ServerObject serverObject)
             {
@@ -33,8 +37,9 @@ namespace ChatServer
                     server.SendKey(this.Id);
                     // получаем имя пользователя
                     string message = GetNameAndKey();
+                    server.BroadcastMessage("XXXNEWUSER" + YString, this.Id);
                     userName = message;
-                    
+
                     message = userName + " вошел в чат";
                     // посылаем сообщение о входе в чат всем подключенным пользователям
                     server.BroadcastMessage(message, this.Id);
@@ -45,9 +50,14 @@ namespace ChatServer
                         try
                         {
                             message = GetMessage();
-                            message = String.Format("{0}: {1}", userName, message);
                             Console.WriteLine(message);
-                            server.BroadcastMessage(message, this.Id);
+                            var model = JsonSerializer.Deserialize<List<string>>(message);
+                            foreach (var str in model)
+                            {
+                                var list = str.Split("XXXKEYXXX");
+                                
+                                server.BroadcastMessageToUser(YString + "XXXKEYXXX" + list[1], this.Id, list[0]);
+                            }
                         }
                         catch
                         {

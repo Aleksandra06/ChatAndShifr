@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
@@ -16,7 +17,7 @@ namespace Shifr
         public string Q { get; set; }
         public string G { get; set; }
     }
-    public static  class DiffieHellman
+    public static class DiffieHellman
     {
         private static CryptoInitializers CyclingSubgroupPowerOfQ(Random random, int keySizeQ, int keySizeP)
         {
@@ -129,6 +130,21 @@ namespace Shifr
             var A = BigInteger.ModPow(init.G, x, init.P);
             return A;
         }
+        public static BigInteger GetZ(BigInteger y, BigInteger x, BigInteger p)
+        {
+            var Zab = BigInteger.ModPow(y, x, p);
+            return Zab;
+        }
+        public static byte[] Decode(List<int> b, BigInteger z, BigInteger p)
+        {
+            var data = new List<byte>();
+            foreach (var names in b)
+            {
+                var eman = BigInteger.ModPow(new BigInteger(names), z, p);//modPow.Pow(Convert.ToInt64(names), c, N);
+                data.Add((byte)eman);
+            }
+            return data.ToArray();
+        }
         private static void DiffieHellmanGroup()
         {
             var rand = new Random();
@@ -172,6 +188,33 @@ namespace Shifr
 
             //Console.Write($"Result Key Zab: {Zab}\n");
             //Console.Write($"Result Key Zba: {Zba}\n");
+        }
+
+        public static BigInteger Encript(int name, BigInteger z, BigInteger p)
+        {
+            if (z.GetBitLength() <= 32)
+            {
+                var tmp = BigInteger.Pow(new BigInteger(name), int.Parse(z.ToString()));
+                if (BigInteger.Compare(tmp, p) < 0)
+                {
+                    return BigInteger.Add(tmp, p);
+                }
+            }
+            var Zab = BigInteger.ModPow(new BigInteger(name), z, p);
+            return Zab;
+        }
+        public static BigInteger Decript(BigInteger name, BigInteger z, BigInteger p)
+        {
+            if (z.GetBitLength() <= 32)
+            {
+                var tmp = BigInteger.Pow(name, int.Parse(z.ToString()));
+                if (BigInteger.Compare(tmp, p) < 0)
+                {
+                    return BigInteger.Add(tmp, p);
+                }
+            }
+            var Zab = BigInteger.ModPow(name, z, p);
+            return Zab;
         }
     }
 }

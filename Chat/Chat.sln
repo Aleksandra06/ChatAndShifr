@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatServer", "Chat\ChatServer.csproj", "{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatServer", "Chat\ChatServer.csproj", "{F6A2592D-2ECE-48D9-9DD9-2CC11B64BE5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "ChatClient\ChatClient.csproj", "{C3229DA2-007E-4C65-A568-142742464377}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatClient", "ChatClient\ChatClient.csproj", "{C3229DA2-007E-4C65-A568-142742464377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shifr", "Shifr\Shifr.csproj", "{182015DE-1BFF-4D82-B276-B8DF765A54E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shifr", "Shifr\Shifr.csproj", "{182015DE-1BFF-4D82-B276-B8DF765A54E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{215C5357-0F1B-4912-99D6-8347D6086D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{182015DE-1BFF-4D82-B276-B8DF765A54E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215C5357-0F1B-4912-99D6-8347D6086D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215C5357-0F1B-4912-99D6-8347D6086D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215C5357-0F1B-4912-99D6-8347D6086D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215C5357-0F1B-4912-99D6-8347D6086D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
+using System.Threading.Tasks;
 using ChatServer.ChatServer;
 using Shifr;
 
@@ -52,6 +53,8 @@ namespace ChatServer
                     ClientObject clientObject = new ClientObject(tcpClient, this);
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
+                    Task.Delay(3);
+
                 }
             }
             catch (Exception ex)
@@ -73,6 +76,12 @@ namespace ChatServer
                 }
             }
         }
+        protected internal void BroadcastMessageToUser(string message, string id, string yOpen)
+        {
+            byte[] data = Encoding.Unicode.GetBytes(message);
+            var index = clients.FindIndex(x => x.Equals(yOpen));
+            clients[index].Stream.Write(data, 0, data.Length);
+        }
         // отключение всех клиентов
         protected internal void Disconnect()
         {
@@ -88,7 +97,12 @@ namespace ChatServer
         protected internal void SendKey(string id)
         {
             //var json = JsonSerializer.Serialize(Keys);
-            byte[] data = Encoding.Unicode.GetBytes(JsonKeys);
+            var msg = JsonKeys + "XXXKEYXXX";
+            foreach (var item in clients.Where(x=> x.Id != id).ToList())
+            {
+                msg += "," + item.YString;
+            }
+            byte[] data = Encoding.Unicode.GetBytes(msg);
             var index = clients.FindIndex(x => x.Id == id);
             clients[index].Stream.Write(data, 0, data.Length);
         }
